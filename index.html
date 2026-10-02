@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>ZOGGY-ANIMASAN</title>
 
+
 <style>
+
+/* =========================
+   মূল সেটিং
+========================= */
+
 *{
   box-sizing:border-box;
 }
@@ -14,9 +24,14 @@
 body{
   margin:0;
   font-family:Arial,"Noto Sans Bengali",sans-serif;
-  background:#f5f5f5;
+  background:#f4f4f4;
   color:#222;
 }
+
+
+/* =========================
+   উপরের অংশ
+========================= */
 
 header{
   background:#111;
@@ -34,25 +49,33 @@ header h1{
 }
 
 header p{
-  margin:7px 0 12px;
+  margin:7px 0 14px;
   font-size:14px;
 }
 
+
+/* =========================
+   সার্চ
+========================= */
+
 .search-box{
-  max-width:600px;
+  max-width:650px;
   margin:auto;
-  display:flex;
-  gap:8px;
 }
 
 .search-box input{
   width:100%;
   padding:13px;
   border:0;
-  border-radius:8px;
+  border-radius:9px;
   font-size:16px;
   outline:none;
 }
+
+
+/* =========================
+   কার্ট বাটন
+========================= */
 
 .cart-top{
   margin-top:12px;
@@ -62,18 +85,28 @@ header p{
   border:0;
   background:#ff9800;
   color:white;
-  padding:11px 18px;
+  padding:11px 20px;
   border-radius:8px;
   font-size:16px;
   cursor:pointer;
   font-weight:bold;
 }
 
+
+/* =========================
+   মূল অংশ
+========================= */
+
 .container{
   max-width:1200px;
   margin:auto;
   padding:20px 12px;
 }
+
+
+/* =========================
+   ক্যাটাগরি
+========================= */
 
 .category{
   margin-bottom:35px;
@@ -86,13 +119,25 @@ header p{
   border-radius:10px;
   margin-bottom:15px;
   font-size:21px;
+  font-weight:bold;
 }
+
+
+/* =========================
+   পণ্য গ্রিড
+========================= */
 
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  grid-template-columns:
+    repeat(auto-fit,minmax(190px,1fr));
   gap:15px;
 }
+
+
+/* =========================
+   পণ্য কার্ড
+========================= */
 
 .card{
   background:white;
@@ -101,6 +146,11 @@ header p{
   box-shadow:0 3px 12px rgba(0,0,0,.12);
   padding-bottom:14px;
 }
+
+
+/* =========================
+   ছবি
+========================= */
 
 .image-box{
   position:relative;
@@ -117,29 +167,62 @@ header p{
   display:block;
 }
 
+
+/* =========================
+   Watermark
+   শুধু ছবির মধ্যে থাকবে
+========================= */
+
 .watermark{
   position:absolute;
+
   left:50%;
   top:50%;
-  transform:translate(-50%,-50%) rotate(-25deg);
-  color:rgba(255,255,255,.55);
+
+  transform:
+    translate(-50%,-50%)
+    rotate(-25deg);
+
+  color:rgba(255,255,255,.60);
+
   font-size:20px;
+
   font-weight:bold;
+
   white-space:nowrap;
+
   pointer-events:none;
-  text-shadow:1px 1px 3px #000;
+
+  text-shadow:
+    1px 1px 3px #000;
 }
+
+
+/* =========================
+   নম্বর
+========================= */
 
 .number{
   position:absolute;
+
   left:8px;
   top:8px;
+
   background:#ff9800;
+
   color:white;
+
   padding:5px 10px;
+
   border-radius:20px;
+
   font-weight:bold;
 }
+
+
+/* =========================
+   কার্ডের লেখা
+========================= */
 
 .card-content{
   padding:12px;
@@ -147,32 +230,59 @@ header p{
 }
 
 .card h3{
-  margin:4px 0 10px;
+  margin:4px 0 12px;
   font-size:17px;
 }
 
+
+/* =========================
+   কার্টে যোগ
+========================= */
+
 .cart-add{
   width:100%;
+
   border:0;
+
   background:#ff9800;
+
   color:white;
+
   padding:11px;
+
   border-radius:7px;
+
   font-size:15px;
+
   cursor:pointer;
+
   margin-bottom:8px;
+
   font-weight:bold;
 }
 
+
+/* =========================
+   WhatsApp
+========================= */
+
 .whatsapp{
   width:100%;
+
   border:0;
+
   background:#25D366;
+
   color:white;
+
   padding:11px;
+
   border-radius:7px;
+
   font-size:14px;
+
   cursor:pointer;
+
   font-weight:bold;
 }
 
@@ -180,19 +290,39 @@ header p{
   background:#1ebe5d;
 }
 
+
+/* =========================
+   কার্ট প্যানেল
+========================= */
+
 .cart-panel{
+
   display:none;
+
   position:fixed;
+
   right:10px;
   top:80px;
+
   width:350px;
-  max-width:calc(100% - 20px);
+
+  max-width:
+    calc(100% - 20px);
+
   max-height:80vh;
+
   overflow:auto;
+
   background:white;
+
   z-index:2000;
+
   border-radius:12px;
-  box-shadow:0 5px 30px rgba(0,0,0,.3);
+
+  box-shadow:
+    0 5px 30px
+    rgba(0,0,0,.3);
+
   padding:16px;
 }
 
@@ -200,86 +330,198 @@ header p{
   margin-top:0;
 }
 
+
+/* =========================
+   কার্টের পণ্য
+========================= */
+
 .cart-item{
-  border-bottom:1px solid #ddd;
+
+  border-bottom:
+    1px solid #ddd;
+
   padding:12px 0;
 }
 
 .cart-name{
   font-weight:bold;
-  margin-bottom:8px;
+  margin-bottom:7px;
 }
 
+
+/* =========================
+   সংখ্যা নিয়ন্ত্রণ
+========================= */
+
 .qty-controls{
+
   display:flex;
+
   align-items:center;
+
   gap:8px;
+
+  margin-top:10px;
+
+  flex-wrap:wrap;
 }
 
 .qty-controls button{
+
   width:32px;
   height:32px;
+
   border:0;
+
   border-radius:6px;
+
   background:#222;
+
   color:white;
+
   font-size:18px;
+
   cursor:pointer;
 }
+
+
+/* =========================
+   বাদ দেওয়া
+========================= */
 
 .remove-btn{
+
   background:#e53935 !important;
+
   width:auto !important;
-  padding:0 10px;
-  font-size:14px !important;
+
+  padding:
+    0 10px;
+
+  font-size:
+    13px !important;
 }
 
+
+/* =========================
+   কার্ট WhatsApp
+========================= */
+
 .cart-whatsapp{
+
   width:100%;
+
   background:#25D366;
+
   color:white;
+
   border:0;
+
   padding:13px;
+
   border-radius:8px;
+
   font-size:16px;
+
   cursor:pointer;
+
   font-weight:bold;
+
   margin-top:12px;
 }
 
+
+/* =========================
+   কার্ট বন্ধ
+========================= */
+
 .close-cart{
+
   width:100%;
+
   background:#555;
+
   color:white;
+
   border:0;
+
   padding:11px;
+
   border-radius:8px;
+
   font-size:15px;
+
   cursor:pointer;
+
   margin-top:8px;
 }
 
+
+/* =========================
+   খালি কার্ট
+========================= */
+
 .empty{
+
   text-align:center;
+
   padding:20px;
+
   color:#777;
 }
 
-footer{
-  background:#111;
-  color:white;
+
+/* =========================
+   সার্চে কিছু না পাওয়া
+========================= */
+
+.no-result{
+
   text-align:center;
+
+  background:white;
+
+  padding:30px;
+
+  border-radius:10px;
+
+  font-size:18px;
+}
+
+
+/* =========================
+   নিচের অংশ
+========================= */
+
+footer{
+
+  background:#111;
+
+  color:white;
+
+  text-align:center;
+
   padding:25px 10px;
+
   margin-top:30px;
 }
 
+
+/* =========================
+   মোবাইল
+========================= */
+
 @media(max-width:500px){
+
   header h1{
     font-size:23px;
   }
 
   .products{
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+      repeat(2,1fr);
+
     gap:10px;
   }
 
@@ -293,17 +535,1108 @@ footer{
 
   .cart-add,
   .whatsapp{
+
     font-size:12px;
+
     padding:9px 5px;
   }
+
+  .category-title{
+    font-size:18px;
+  }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     উপরের অংশ
+========================= -->
+
 <header>
 
-<h1>ZOGGY-ANIMASAN</h1>
+  <h1>ZOGGY-ANIMASAN</h1>
 
-<p>কার্টুন অ্যানিমেশনের সব ধরনের উপকরণ</p>
+  <p>
+    কার্টুন অ্যানিমেশনের সব ধরনের উপকরণ
+  </p>
+
+
+  <!-- সার্চ -->
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      id="search"
+      placeholder="জিনিসের নাম বা নম্বর খুঁজুন..."
+      oninput="searchProducts()">
+
+  </div>
+
+
+  <!-- কার্ট -->
+
+  <div class="cart-top">
+
+    <button
+      class="cart-button"
+      onclick="openCart()">
+
+      🛒 কার্ট
+      (<span id="cartCount">০</span>)
+
+    </button>
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================
+     পণ্য দেখানোর জায়গা
+========================= -->
+
+<div class="container">
+
+  <div id="productsArea"></div>
+
+</div>
+
+
+
+<!-- =========================
+     কার্ট
+========================= -->
+
+<div
+  class="cart-panel"
+  id="cartPanel">
+
+
+  <h2>
+    🛒 আমার কার্ট
+  </h2>
+
+
+  <div id="cartItems"></div>
+
+
+  <button
+    class="cart-whatsapp"
+    onclick="sendCartWhatsApp()">
+
+    💬 কার্টের জিনিসগুলো কিনতে চাই
+
+  </button>
+
+
+  <button
+    class="close-cart"
+    onclick="closeCart()">
+
+    কার্ট বন্ধ করুন
+
+  </button>
+
+</div>
+
+
+
+<!-- =========================
+     নিচের অংশ
+========================= -->
+
+<footer>
+
+  ZOGGY-ANIMASAN
+
+  <br>
+
+  কার্টুন অ্যানিমেশন সামগ্রী
+
+</footer>
+
+
+
+<script>
+
+
+/* ==================================================
+   WhatsApp নম্বর
+================================================== */
+
+const whatsappNumber =
+  "918282892204";
+
+
+
+/* ==================================================
+   বাংলা সংখ্যা
+================================================== */
+
+const bengaliDigits = [
+  "০",
+  "১",
+  "২",
+  "৩",
+  "৪",
+  "৫",
+  "৬",
+  "৭",
+  "৮",
+  "৯"
+];
+
+
+function bengaliNumber(number){
+
+  return String(number)
+    .split("")
+    .map(function(digit){
+
+      return bengaliDigits[
+        Number(digit)
+      ] || digit;
+
+    })
+    .join("");
+
+}
+
+
+
+/* ==================================================
+   ক্যাটাগরি
+================================================== */
+
+const categories = [
+
+  {
+    name:"🧑 কার্টুন ক্যারেক্টার",
+    shortName:"ক্যারেক্টার"
+  },
+
+  {
+    name:"🌄 কার্টুন ব্যাকগ্রাউন্ড",
+    shortName:"কার্টুন ব্যাকগ্রাউন্ড"
+  },
+
+  {
+    name:"🎒 কার্টুন প্রপস",
+    shortName:"কার্টুন প্রপস"
+  },
+
+  {
+    name:"📦 কার্টুন প্যাক",
+    shortName:"কার্টুন প্যাক"
+  },
+
+  {
+    name:"🏠 কার্টুন হাউস ব্যাকগ্রাউন্ড প্যাক",
+    shortName:"হাউস ব্যাকগ্রাউন্ড প্যাক"
+  },
+
+  {
+    name:"🧑‍🎨 কার্টুন হোমমেড ক্যারেক্টার প্যাক",
+    shortName:"হোমমেড ক্যারেক্টার প্যাক"
+  }
+
+];
+
+
+
+/* ==================================================
+   সব পণ্য
+================================================== */
+
+let products = [];
+
+
+categories.forEach(
+  function(category, categoryIndex){
+
+    for(
+      let number = 1;
+      number <= 10;
+      number++
+    ){
+
+      const product = {
+
+        id:
+          categoryIndex +
+          "-" +
+          number,
+
+        category:
+          category.name,
+
+        shortCategory:
+          category.shortName,
+
+        number:
+          number,
+
+        bengaliNumber:
+          bengaliNumber(number),
+
+        name:
+          category.shortName +
+          " নম্বর " +
+          bengaliNumber(number),
+
+        /*
+          এখন পরীক্ষার ছবি ব্যবহার হচ্ছে।
+
+          পরে আমরা এখানে
+          তোমার আসল ছবি বসাবো।
+        */
+
+        image:
+          "https://placehold.co/600x500/eeeeee/222222?text=" +
+          encodeURIComponent(
+            category.shortName +
+            " " +
+            bengaliNumber(number)
+          )
+
+      };
+
+
+      products.push(product);
+
+    }
+
+  }
+);
+
+
+
+/* ==================================================
+   কার্ট
+================================================== */
+
+let cart = [];
+
+
+/*
+   আগের কার্ট থাকলে রাখবে।
+   কোনো সমস্যা হলে খালি কার্ট হবে।
+*/
+
+try{
+
+  const savedCart =
+    localStorage.getItem(
+      "zoggyCart"
+    );
+
+  if(savedCart){
+
+    cart =
+      JSON.parse(savedCart);
+
+  }
+
+}catch(error){
+
+  cart = [];
+
+}
+
+
+
+/* ==================================================
+   কার্ট সেভ
+================================================== */
+
+function saveCart(){
+
+  localStorage.setItem(
+    "zoggyCart",
+    JSON.stringify(cart)
+  );
+
+}
+
+
+
+/* ==================================================
+   কার্টের মোট সংখ্যা
+================================================== */
+
+function updateCartCount(){
+
+  let total = 0;
+
+
+  cart.forEach(
+    function(item){
+
+      total +=
+        Number(item.quantity);
+
+    }
+  );
+
+
+  document
+    .getElementById("cartCount")
+    .textContent =
+      bengaliNumber(total);
+
+}
+
+
+
+/* ==================================================
+   সব পণ্য দেখানো
+================================================== */
+
+function showProducts(list){
+
+  const area =
+    document.getElementById(
+      "productsArea"
+    );
+
+
+  area.innerHTML = "";
+
+
+  categories.forEach(
+    function(category){
+
+      const categoryProducts =
+        list.filter(
+          function(product){
+
+            return (
+              product.category ===
+              category.name
+            );
+
+          }
+        );
+
+
+      if(
+        categoryProducts.length === 0
+      ){
+
+        return;
+
+      }
+
+
+      const section =
+        document.createElement(
+          "div"
+        );
+
+
+      section.className =
+        "category";
+
+
+      section.innerHTML = `
+
+        <div class="category-title">
+          ${category.name}
+        </div>
+
+        <div class="products"></div>
+
+      `;
+
+
+      const productArea =
+        section.querySelector(
+          ".products"
+        );
+
+
+      categoryProducts.forEach(
+        function(product){
+
+          const card =
+            document.createElement(
+              "div"
+            );
+
+
+          card.className =
+            "card";
+
+
+          card.innerHTML = `
+
+            <div class="image-box">
+
+              <img
+                src="${product.image}"
+                alt="${product.name}"
+                loading="lazy">
+
+              <div class="watermark">
+                ZOGGY-ANIMASAN
+              </div>
+
+              <div class="number">
+                ${product.bengaliNumber}
+              </div>
+
+            </div>
+
+
+            <div class="card-content">
+
+              <h3>
+                ${product.name}
+              </h3>
+
+
+              <button
+                class="cart-add"
+                onclick="
+                  addToCart('${product.id}')
+                ">
+
+                🛒 কার্টে যোগ করুন
+
+              </button>
+
+
+              <button
+                class="whatsapp"
+                onclick="
+                  buyOnWhatsApp('${product.id}')
+                ">
+
+                💬 কিনতে চাইলে
+                হোয়াটসঅ্যাপে মেসেজ করুন
+
+              </button>
+
+            </div>
+
+          `;
+
+
+          productArea.appendChild(
+            card
+          );
+
+        }
+      );
+
+
+      area.appendChild(
+        section
+      );
+
+    }
+  );
+
+
+  /*
+     কিছুই না পেলে
+  */
+
+  if(
+    area.innerHTML.trim() === ""
+  ){
+
+    area.innerHTML = `
+
+      <div class="no-result">
+
+        😔 কোনো জিনিস পাওয়া যায়নি।
+
+        <br><br>
+
+        অন্য নাম বা নম্বর দিয়ে
+        আবার খুঁজুন।
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+
+/* ==================================================
+   সরাসরি WhatsApp-এ কেনা
+================================================== */
+
+function buyOnWhatsApp(productId){
+
+  const product =
+    products.find(
+      function(item){
+
+        return item.id ===
+          productId;
+
+      }
+    );
+
+
+  if(!product){
+
+    return;
+
+  }
+
+
+  const message =
+
+`আসসালামু আলাইকুম।
+
+আমি "${product.shortCategory} নম্বর ${product.bengaliNumber}"-এর হোয়াটসঅ্যাপ বাটনে চাপ দিয়েছি।
+
+এই জিনিসটা আমি কিনতে চাই।
+
+জিনিসের নাম: ${product.name}
+নম্বর: ${product.bengaliNumber}`;
+
+
+  const url =
+
+    "https://wa.me/" +
+    whatsappNumber +
+    "?text=" +
+    encodeURIComponent(
+      message
+    );
+
+
+  window.open(
+    url,
+    "_blank"
+  );
+
+}
+
+
+
+/* ==================================================
+   কার্টে যোগ
+================================================== */
+
+function addToCart(productId){
+
+  const existing =
+    cart.find(
+      function(item){
+
+        return item.id ===
+          productId;
+
+      }
+    );
+
+
+  if(existing){
+
+    existing.quantity =
+      Number(existing.quantity) + 1;
+
+  }else{
+
+    cart.push({
+
+      id:
+        productId,
+
+      quantity:
+        1
+
+    });
+
+  }
+
+
+  saveCart();
+
+  updateCartCount();
+
+  showCart();
+
+
+  alert(
+    "জিনিসটি কার্টে যোগ হয়েছে।"
+  );
+
+}
+
+
+
+/* ==================================================
+   কার্ট খোলা
+================================================== */
+
+function openCart(){
+
+  document
+    .getElementById(
+      "cartPanel"
+    )
+    .style.display =
+      "block";
+
+
+  showCart();
+
+}
+
+
+
+/* ==================================================
+   কার্ট বন্ধ
+================================================== */
+
+function closeCart(){
+
+  document
+    .getElementById(
+      "cartPanel"
+    )
+    .style.display =
+      "none";
+
+}
+
+
+
+/* ==================================================
+   কার্ট দেখানো
+================================================== */
+
+function showCart(){
+
+  const area =
+    document.getElementById(
+      "cartItems"
+    );
+
+
+  area.innerHTML = "";
+
+
+  if(
+    cart.length === 0
+  ){
+
+    area.innerHTML = `
+
+      <div class="empty">
+
+        আপনার কার্ট এখন খালি।
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  cart.forEach(
+    function(item){
+
+      const product =
+        products.find(
+          function(product){
+
+            return product.id ===
+              item.id;
+
+          }
+        );
+
+
+      if(!product){
+
+        return;
+
+      }
+
+
+      const div =
+        document.createElement(
+          "div"
+        );
+
+
+      div.className =
+        "cart-item";
+
+
+      div.innerHTML = `
+
+        <div class="cart-name">
+
+          ${product.name}
+
+        </div>
+
+
+        <div>
+
+          নম্বর:
+          ${product.bengaliNumber}
+
+        </div>
+
+
+        <div class="qty-controls">
+
+
+          <button
+            onclick="
+              changeQuantity(
+                '${product.id}',
+                -1
+              )
+            ">
+
+            −
+
+          </button>
+
+
+          <strong>
+
+            ${bengaliNumber(
+              item.quantity
+            )}
+
+          </strong>
+
+
+          <button
+            onclick="
+              changeQuantity(
+                '${product.id}',
+                1
+              )
+            ">
+
+            +
+
+          </button>
+
+
+          <button
+            class="remove-btn"
+            onclick="
+              removeFromCart(
+                '${product.id}'
+              )
+            ">
+
+            বাদ দিন
+
+          </button>
+
+
+        </div>
+
+      `;
+
+
+      area.appendChild(
+        div
+      );
+
+    }
+  );
+
+}
+
+
+
+/* ==================================================
+   কার্টের পরিমাণ পরিবর্তন
+================================================== */
+
+function changeQuantity(
+  productId,
+  change
+){
+
+  const item =
+    cart.find(
+      function(item){
+
+        return item.id ===
+          productId;
+
+      }
+    );
+
+
+  if(!item){
+
+    return;
+
+  }
+
+
+  item.quantity =
+    Number(item.quantity) +
+    Number(change);
+
+
+  if(
+    item.quantity <= 0
+  ){
+
+    cart =
+      cart.filter(
+        function(item){
+
+          return item.id !==
+            productId;
+
+        }
+      );
+
+  }
+
+
+  saveCart();
+
+  updateCartCount();
+
+  showCart();
+
+}
+
+
+
+/* ==================================================
+   কার্ট থেকে বাদ
+================================================== */
+
+function removeFromCart(
+  productId
+){
+
+  cart =
+    cart.filter(
+      function(item){
+
+        return item.id !==
+          productId;
+
+      }
+    );
+
+
+  saveCart();
+
+  updateCartCount();
+
+  showCart();
+
+}
+
+
+
+/* ==================================================
+   পুরো কার্ট WhatsApp
+================================================== */
+
+function sendCartWhatsApp(){
+
+  if(
+    cart.length === 0
+  ){
+
+    alert(
+      "আপনার কার্ট খালি।"
+    );
+
+    return;
+
+  }
+
+
+  let message =
+
+`আসসালামু আলাইকুম।
+
+আমি আমার কার্টে থাকা নিচের জিনিসগুলো কিনতে চাই।
+
+`;
+
+
+  cart.forEach(
+    function(item,index){
+
+      const product =
+        products.find(
+          function(product){
+
+            return product.id ===
+              item.id;
+
+          }
+        );
+
+
+      if(product){
+
+        message +=
+
+`${bengaliNumber(index + 1)}।
+${product.name}
+নম্বর: ${product.bengaliNumber}
+পরিমাণ: ${bengaliNumber(item.quantity)}
+
+`;
+
+      }
+
+    }
+  );
+
+
+  message +=
+
+`দয়া করে এই জিনিসগুলোর ব্যাপারে আমাকে জানাবেন।`;
+
+
+  const url =
+
+    "https://wa.me/" +
+    whatsappNumber +
+    "?text=" +
+    encodeURIComponent(
+      message
+    );
+
+
+  window.open(
+    url,
+    "_blank"
+  );
+
+}
+
+
+
+/* ==================================================
+   সার্চ
+================================================== */
+
+function searchProducts(){
+
+  const input =
+    document.getElementById(
+      "search"
+    );
+
+
+  const text =
+    input.value
+      .toLowerCase()
+      .trim();
+
+
+  if(
+    text === ""
+  ){
+
+    showProducts(
+      products
+    );
+
+    return;
+
+  }
+
+
+  const result =
+    products.filter(
+      function(product){
+
+        const name =
+          product.name.toLowerCase();
+
+
+        const category =
+          product.category.toLowerCase();
+
+
+        const shortName =
+          product.shortCategory.toLowerCase();
+
+
+        const englishNumber =
+          String(
+            product.number
+          );
+
+
+        const bengaliNum =
+          product.bengaliNumber;
+
+
+        return (
+
+          name.includes(text) ||
+
+          category.includes(text) ||
+
+          shortName.includes(text) ||
+
+          englishNumber === text ||
+
+          bengaliNum === text
+
+        );
+
+      }
+    );
+
+
+  showProducts(
+    result
+  );
+
+}
+
+
+
+/* ==================================================
+   ওয়েবসাইট চালু হওয়ার সময়
+================================================== */
+
+showProducts(
+  products
+);
+
+updateCartCount();
+
+
+</script>
+
+
+</body>
+
+</html>‌
