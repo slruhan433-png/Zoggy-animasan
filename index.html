@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZOGGY-ANIMASAN</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#f5f5f5;
+  color:#222;
+}
+
+header{
+  background:#111;
+  color:white;
+  padding:18px 12px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+header h1{
+  margin:0;
+  font-size:28px;
+}
+
+header p{
+  margin:7px 0 12px;
+  font-size:14px;
+}
+
+.search-box{
+  max-width:600px;
+  margin:auto;
+  display:flex;
+  gap:8px;
+}
+
+.search-box input{
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:8px;
+  font-size:16px;
+  outline:none;
+}
+
+.cart-top{
+  margin-top:12px;
+}
+
+.cart-button{
+  border:0;
+  background:#ff9800;
+  color:white;
+  padding:11px 18px;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:20px 12px;
+}
+
+.category{
+  margin-bottom:35px;
+}
+
+.category-title{
+  background:#222;
+  color:white;
+  padding:14px;
+  border-radius:10px;
+  margin-bottom:15px;
+  font-size:21px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:15px;
+}
+
+.card{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 3px 12px rgba(0,0,0,.12);
+  padding-bottom:14px;
+}
+
+.image-box{
+  position:relative;
+  width:100%;
+  height:190px;
+  background:#ddd;
+  overflow:hidden;
+}
+
+.image-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.watermark{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%) rotate(-25deg);
+  color:rgba(255,255,255,.55);
+  font-size:20px;
+  font-weight:bold;
+  white-space:nowrap;
+  pointer-events:none;
+  text-shadow:1px 1px 3px #000;
+}
+
+.number{
+  position:absolute;
+  left:8px;
+  top:8px;
+  background:#ff9800;
+  color:white;
+  padding:5px 10px;
+  border-radius:20px;
+  font-weight:bold;
+}
+
+.card-content{
+  padding:12px;
+  text-align:center;
+}
+
+.card h3{
+  margin:4px 0 10px;
+  font-size:17px;
+}
+
+.cart-add{
+  width:100%;
+  border:0;
+  background:#ff9800;
+  color:white;
+  padding:11px;
+  border-radius:7px;
+  font-size:15px;
+  cursor:pointer;
+  margin-bottom:8px;
+  font-weight:bold;
+}
+
+.whatsapp{
+  width:100%;
+  border:0;
+  background:#25D366;
+  color:white;
+  padding:11px;
+  border-radius:7px;
+  font-size:14px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.whatsapp:hover{
+  background:#1ebe5d;
+}
+
+.cart-panel{
+  display:none;
+  position:fixed;
+  right:10px;
+  top:80px;
+  width:350px;
+  max-width:calc(100% - 20px);
+  max-height:80vh;
+  overflow:auto;
+  background:white;
+  z-index:2000;
+  border-radius:12px;
+  box-shadow:0 5px 30px rgba(0,0,0,.3);
+  padding:16px;
+}
+
+.cart-panel h2{
+  margin-top:0;
+}
+
+.cart-item{
+  border-bottom:1px solid #ddd;
+  padding:12px 0;
+}
+
+.cart-name{
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.qty-controls{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.qty-controls button{
+  width:32px;
+  height:32px;
+  border:0;
+  border-radius:6px;
+  background:#222;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.remove-btn{
+  background:#e53935 !important;
+  width:auto !important;
+  padding:0 10px;
+  font-size:14px !important;
+}
+
+.cart-whatsapp{
+  width:100%;
+  background:#25D366;
+  color:white;
+  border:0;
+  padding:13px;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
+  font-weight:bold;
+  margin-top:12px;
+}
+
+.close-cart{
+  width:100%;
+  background:#555;
+  color:white;
+  border:0;
+  padding:11px;
+  border-radius:8px;
+  font-size:15px;
+  cursor:pointer;
+  margin-top:8px;
+}
+
+.empty{
+  text-align:center;
+  padding:20px;
+  color:#777;
+}
+
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:25px 10px;
+  margin-top:30px;
+}
+
+@media(max-width:500px){
+  header h1{
+    font-size:23px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .image-box{
+    height:145px;
+  }
+
+  .card h3{
+    font-size:14px;
+  }
+
+  .cart-add,
+  .whatsapp{
+    font-size:12px;
+    padding:9px 5px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>ZOGGY-ANIMASAN</h1>
+
+<p>কার্টুন অ্যানিমেশনের সব ধরনের উপকরণ</p>
