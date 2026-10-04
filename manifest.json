@@ -1,0 +1,12 @@
+{
+  "name": "ZOGGY-ANIMASAN",
+  "short_name": "ZOGGY-ANIMASAN",
+  "description": "ZOGGY-ANIMASAN কার্টুন অ্যানিমেশনের সব ধরনের উপকরণ",
+  "id": "/Zoggy-animasan/",
+  "start_url": "/Zoggy-animasan/",
+  "scope": "/Zoggy-animasan/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "lang": "bn"
+}
