@@ -1585,6 +1585,32 @@ function showToast(message){
 updateCartCount();
 
 </script>
+</script>
+
+<!-- 🖼️ Full Screen Image Viewer -->
+<div id="imageViewer" onclick="closeImageViewer()">
+  <span class="close-image">✕</span>
+  <img id="fullImage" src="" alt="বড় ছবি">
+</div>
+
+<script>
+function openImageViewer(src){
+  document.getElementById("fullImage").src = src;
+  document.getElementById("imageViewer").style.display = "flex";
+}
+
+function closeImageViewer(){
+  document.getElementById("imageViewer").style.display = "none";
+}
+
+document.querySelectorAll(".product-image img, .offer-image img").forEach(function(img){
+  img.style.cursor = "zoom-in";
+  img.onclick = function(event){
+    event.stopPropagation();
+    openImageViewer(this.src);
+  };
+});
+</script>
 
 </body>
 </html>
